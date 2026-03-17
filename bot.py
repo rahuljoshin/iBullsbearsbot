@@ -126,3 +126,5 @@ if signal_found:
     print("Signal found and alert sent.")
 else:
     print("No signal at this interval.")
+    send_telegram_msg("No signal at this interval.")
+
