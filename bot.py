@@ -1,4 +1,4 @@
-!pip install pandas_ta
+#!pip install pandas_ta
 import pandas_ta as ta
 
 import yfinance as yf
