@@ -110,11 +110,21 @@ def apply_strategy(df5, df1):
     prev = df5.iloc[-2]
 
     # Signal Condition
+    '''
     is_signal = (
         (curr['Close'] > curr['VWAP']) and (curr['RSI14_5m'] > 55) and
         (curr['RSI14_1m'] > 55) and (curr['Close'] > curr['BB_Upper_1']) and
         (curr['Close'] > curr['IRB_High']) and (curr['QQE_Green']) and
         (curr['SMA5'] > curr['EMA18']) and (curr['SMA5'] > curr['SMA50'])
+    )
+   '''
+    
+
+    # Signal Condition
+    is_signal = (
+        (curr['RSI14_5m'] > 55) and
+        (curr['RSI14_1m'] > 55) and (curr['Close'] > curr['BB_Upper_1']) and
+        (curr['Close'] > curr['IRB_High']) and (curr['SMA5'] > curr['EMA18']) and (curr['SMA5'] > curr['SMA50'])
     )
 
     return curr, is_signal
