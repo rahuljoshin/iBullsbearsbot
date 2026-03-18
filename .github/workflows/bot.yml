@@ -1,11 +1,11 @@
-name: iBBot1.1
+name: Nifty 50 IRB Bot
 
 on:
   schedule:
-    # Runs every 5 minutes (offset by 2 mins to avoid peak server load)
-    # 03:42 UTC is 09:12 AM IST | 10:02 UTC is 03:32 PM IST
-    - cron: '2/5 3-10 * * 1-5'
-  workflow_dispatch: # Allows manual trigger for testing
+    # Runs every 5 minutes from 9:10 AM to 3:40 PM IST (03:40 to 10:10 UTC)
+    # GitHub uses UTC time. IST is UTC + 5:30.
+    - cron: '*/5 3-10 * * 1-5'
+  workflow_dispatch: # Allows you to run it manually for testing
 
 jobs:
   build:
@@ -16,10 +16,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/checkout@v4
         with:
           python-version: '3.10'
-          cache: 'pip' # Speeds up the run by caching your libraries
 
       - name: Install Dependencies
         run: |
@@ -30,4 +29,4 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python nifty_bot.py
+        run: python bot.py
