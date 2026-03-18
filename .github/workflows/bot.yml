@@ -2,7 +2,7 @@ name: Nifty 50 IRB Bot
 
 on:
   schedule:
-    # Runs every 2 minutes from 9:10 AM to 3:40 PM IST (03:40 to 10:10 UTC)
+    # Runs every 5 minutes from 9:10 AM to 3:40 PM IST (03:40 to 10:10 UTC)
     # GitHub uses UTC time. IST is UTC + 5:30.
     - cron: '*/5 3-10 * * 1-5'
   workflow_dispatch: # Allows you to run it manually for testing
